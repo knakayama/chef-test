@@ -46,6 +46,7 @@ EOT
 
     # chef-solo
     config.vm.provision :chef_solo do |chef|
+        chef.custom_config_path = "Vagrantfile.chef"
         chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
         chef.data_bags_path = "data_bags"
         chef.run_list = %w[
