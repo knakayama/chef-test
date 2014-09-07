@@ -25,8 +25,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         aws.instance_type     = "t2.micro"
         aws.security_groups   = [ENV['AWS_SECURITY_GROUP']]
         aws.tags              = {
-            'Name'        => 'ec2-jenkins',
-            'Description' => 'jenkins ci server on ec2',
+            'Name'        => 'chef-test',
+            'Description' => 'chef-test',
         }
         #aws.elastic_ip        = true
         aws.user_data         = <<EOT
