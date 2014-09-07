@@ -33,9 +33,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #!/bin/sh
 echo "Defaults    !requiretty" > /etc/sudoers.d/vagrant-init
 chmod 440 /etc/sudoers.d/vagrant-init
-sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-sudo sed -i -e 's@"UTC"@"Asia/Tokyo"@' -e 's/true/false/' /etc/sysconfig/clock
-sudo yum -y update
+ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+sed -i -e 's@"UTC"@"Asia/Tokyo"@' -e 's/true/false/' /etc/sysconfig/clock
+mkdir -p /etc/chef/ohai/hints
+touch /etc/chef/ohai/hints/ec2.json
+yum -y update
 EOT
     end
 
